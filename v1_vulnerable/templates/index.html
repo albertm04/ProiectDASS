@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Dashboard – AuthX v1{% endblock %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>Ești autentificat ca <strong>{{ current_user.email }}</strong> (rol: {{ current_user.role.value }}).</p>
+{% endblock %}

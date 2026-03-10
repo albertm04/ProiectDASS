@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AuthX (v2){% endblock %}</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+        h1 { color: #0a6; }
+        .flash { padding: 0.75rem; margin: 1rem 0; border-radius: 4px; }
+        .flash.error { background: #fee; color: #c00; }
+        .flash.success { background: #efe; color: #060; }
+        form label { display: block; margin-top: 0.5rem; }
+        form input[type="text"], form input[type="email"], form input[type="password"] { width: 100%; padding: 0.5rem; margin: 0.25rem 0 1rem; }
+        form button, .btn { padding: 0.5rem 1rem; cursor: pointer; text-decoration: none; display: inline-block; margin-right: 0.5rem; margin-top: 0.5rem; border: 1px solid #0a6; background: #e8f8f2; color: #055; border-radius: 4px; }
+        form button:hover, .btn:hover { background: #c8f0e0; }
+        nav { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd; }
+        nav a { margin-right: 1rem; }
+    </style>
+</head>
+<body>
+    <h1>AuthX – v2 (securizat)</h1>
+    <nav>
+        {% if current_user %}
+            <span>Bun venit, {{ current_user.email }}</span>
+            <a href="{{ url_for('index') }}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Înregistrare</a>
+            <a href="{{ url_for('forgot_password') }}">Am uitat parola</a>
+        {% endif %}
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, msg in messages %}
+                <div class="flash {{ category }}">{{ msg }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</body>
+</html>

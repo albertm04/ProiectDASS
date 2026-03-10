@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Înregistrare – AuthX v2{% endblock %}
+{% block content %}
+<h2>Înregistrare cont</h2>
+<p>Parolă: min. 8 caractere, cel puțin o literă mare, una mică și o cifră.</p>
+<form method="post" action="{{ url_for('register') }}">
+    <label>Email</label>
+    <input type="email" name="email" required placeholder="user@example.com">
+    <label>Parolă</label>
+    <input type="password" name="password" required placeholder="Min. 8 caractere, Aa1">
+    <label>Confirmă parola</label>
+    <input type="password" name="password_confirm" required>
+    <button type="submit">Creează cont</button>
+</form>
+<p><a href="{{ url_for('login') }}" class="btn">Ai deja cont? Autentifică-te</a></p>
+{% endblock %}
