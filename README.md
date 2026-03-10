@@ -1,4 +1,4 @@
-# Break the Login – Proiect #2 (DASS)
+# Break the Login 
 
 Aplicație de autentificare realizată pentru cursul **Dezvoltarea Aplicațiilor Software Securizate (DASS)**.
 
@@ -34,7 +34,6 @@ Varianta **v1** conține vulnerabilități intenționate pentru demonstrarea ris
 
 - **v1_vulnerable/** – versiunea vulnerabilă
 - **v2_secure/** – versiunea securizată
-- **RAPORT_SECURITATE.md** – raportul complet de securitate
 
 ---
 
